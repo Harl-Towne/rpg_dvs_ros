@@ -29,6 +29,9 @@
 #include <camera_info_manager/camera_info_manager.h>
 #include <sensor_msgs/CameraInfo.h>
 
+// for robostack compatibility
+#include <atomic>
+
 namespace dvxplorer_ros_driver {
 
 class DvxplorerRosDriver {
@@ -54,7 +57,7 @@ private:
 
 	std::string ns;
 
-	std::atomic_bool running_;
+	std::atomic<bool> running_;
 
 	boost::shared_ptr<dynamic_reconfigure::Server<dvxplorer_ros_driver::DVXplorer_ROS_DriverConfig>> server_;
 	dynamic_reconfigure::Server<dvxplorer_ros_driver::DVXplorer_ROS_DriverConfig>::CallbackType
@@ -66,7 +69,7 @@ private:
 
 	ros::Subscriber imu_calibration_sub_;
 	void imuCalibrationCallback(const std_msgs::Empty::ConstPtr &msg);
-	std::atomic_bool imu_calibration_running_;
+	std::atomic<bool> imu_calibration_running_;
 	int imu_calibration_sample_size_;
 	std::vector<sensor_msgs::Imu> imu_calibration_samples_;
 	sensor_msgs::Imu bias;
@@ -81,8 +84,8 @@ private:
 
 	boost::posix_time::time_duration delta_;
 
-	std::atomic_int streaming_rate_;
-	std::atomic_int max_events_;
+	std::atomic<int> streaming_rate_;
+	std::atomic<int> max_events_;
 
 	std::shared_ptr<camera_info_manager::CameraInfoManager> camera_info_manager_;
 
