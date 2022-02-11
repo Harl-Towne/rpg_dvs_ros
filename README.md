@@ -1,6 +1,8 @@
 rpg_dvs_ros
 ===========
 
+Fork of [rpg_dvs_ros](https://github.com/uzh-rpg/rpg_dvs_ros) for [RoboStack](https://github.com/RoboStack/ros-noetic) compatibility.
+
 # Disclaimer and License
 
 The RPG ROS DVS package is supported under ROS Kinetic (Ubuntu 16.04), ROS Melodic (Ubuntu 18.04) and ROS Noetic (Ubuntu 20.04).
